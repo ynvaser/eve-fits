@@ -1,0 +1,31 @@
+[Stratios, #Davos NANO STRATIOS - DRONES v1]
+Nanofiber Internal Structure II
+Damage Control II
+Drone Damage Amplifier II
+Drone Damage Amplifier II
+Co-Processor II
+
+50MN Cold-Gas Enduring Microwarpdrive
+Dread Guristas Warp Disruptor
+X-Large Ancillary Shield Booster
+Caldari Navy Large Shield Extender
+Large Compact Pb-Acid Cap Battery
+
+Covert Ops Cloaking Device II
+Core Probe Launcher II
+
+Medium EM Shield Reinforcer II
+Medium Thermal Shield Reinforcer II
+Medium EM Shield Reinforcer II
+
+
+
+Valkyrie II x5
+Hammerhead II x5
+Ogre II x4
+Berserker II x4
+Warrior II x5
+Vespa EC-600 x5
+Acolyte II x5
+
+Sisters Core Scanner Probe x8

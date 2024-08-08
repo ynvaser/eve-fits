@@ -1,0 +1,49 @@
+[Loki, #Davos NANO LOKI - HAMS v1]
+Damage Control II
+Nanofiber Internal Structure II
+Crosslink Compact Ballistic Control System
+'Portcullis' Reactor Control Unit I
+
+50MN Y-T8 Compact Microwarpdrive
+X-Large Ancillary Shield Booster
+Large Shield Extender II
+Dread Guristas Stasis Webifier
+Dread Guristas Warp Disruptor
+
+Expanded Probe Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+[Empty High slot]
+Covert Ops Cloaking Device II
+
+Medium Rocket Fuel Cache Partition II
+Medium Ancillary Current Router II
+Medium Hydraulic Bay Thrusters I
+
+Loki Core - Immobility Drivers
+Loki Defensive - Covert Reconfiguration
+Loki Offensive - Launcher Efficiency Configuration
+Loki Propulsion - Intercalated Nanofibers
+
+
+Hobgoblin II x2
+Hammerhead II x3
+
+Nova Javelin Heavy Assault Missile x800
+Inferno Rage Heavy Assault Missile x800
+Navy Cap Booster 400 x23
+Nova Rage Heavy Assault Missile x800
+Caldari Navy Nova Heavy Assault Missile x1000
+Mjolnir Rage Heavy Assault Missile x800
+Scourge Javelin Heavy Assault Missile x800
+Caldari Navy Inferno Heavy Assault Missile x1500
+Inferno Javelin Heavy Assault Missile x800
+Mjolnir Javelin Heavy Assault Missile x800
+Caldari Navy Scourge Heavy Assault Missile x1000
+Sisters Combat Scanner Probe x8
+Scourge Rage Heavy Assault Missile x800
+Sisters Core Scanner Probe x8
+Caldari Navy Mjolnir Heavy Assault Missile x1000

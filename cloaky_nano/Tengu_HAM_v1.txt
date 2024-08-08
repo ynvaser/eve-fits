@@ -1,0 +1,39 @@
+[Tengu, #Davos NANO TENGU - HAMS v1]
+Republic Fleet Overdrive Injector
+Nanofiber Internal Structure II
+Ballistic Control System II
+
+50MN Cold-Gas Enduring Microwarpdrive
+Dread Guristas Warp Disruptor
+Multispectrum Shield Hardener II
+Large Ancillary Shield Booster
+Pithum C-Type EM Shield Amplifier
+Large Ancillary Shield Booster
+
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Heavy Assault Missile Launcher II
+Expanded Probe Launcher II
+Covert Ops Cloaking Device II
+
+Medium Hydraulic Bay Thrusters II
+Medium Auxiliary Thrusters I
+Medium Polycarbon Engine Housing II
+
+Tengu Core - Augmented Graviton Reactor
+Tengu Defensive - Covert Reconfiguration
+Tengu Offensive - Accelerated Ejection Bay
+Tengu Propulsion - Chassis Optimization
+
+
+
+Sisters Combat Scanner Probe x8
+Scourge Javelin Heavy Assault Missile x2000
+Caldari Navy Scourge Heavy Assault Missile x2000
+Navy Cap Booster 150 x81
+Scourge Rage Heavy Assault Missile x396
+Sisters Core Scanner Probe x8
+Agency 'Overclocker' SB5 Dose II x1
