@@ -32,8 +32,15 @@ Proteus Propulsion - Hyperspatial Optimization
 Warrior II x5
 Warrior SW-300 x5
 
-Sisters Core Scanner Probe x8
-Javelin M x4240
-Sisters Combat Scanner Probe x8
+Javelin M x3500
 Spike M x1500
 Navy Cap Booster 400 x32
+Sisters Combat Scanner Probe x8
+Sisters Core Scanner Probe x8
+Nanite Repair Paste x200
+Synth Drop Booster x1
+Agency 'Overclocker' SB3 Dose I x5
+Synth Blue Pill Booster x1
+Cladistic-15 'Krai Veles' Filament x1
+Glorification-15 'Devana' Filament x1
+

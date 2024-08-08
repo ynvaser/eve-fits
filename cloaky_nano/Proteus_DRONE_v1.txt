@@ -24,13 +24,16 @@ Proteus Offensive - Drone Synthesis Projector
 Proteus Propulsion - Hyperspatial Optimization
 
 
-Ogre II x5
 Vespa II x5
+Ogre II x5
 Berserker II x5
 
 Sisters Core Scanner Probe x8
+Nanite Repair Paste x200
 Sisters Combat Scanner Probe x8
-Navy Cap Booster 400 x30
-Home-5 'Pochven' Filament x1
-Glorification-1 'Devana' Filament x1
+Navy Cap Booster 400 x29
+Agency 'Overclocker' SB3 Dose I x5
+Cladistic-15 'Krai Veles' Filament x1
+Glorification-15 'Devana' Filament x1
 Mobile Tractor Unit x1
+

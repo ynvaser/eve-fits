@@ -1,0 +1,37 @@
+[Curse, #Davos NANO CURSE - NEUTS/TD v1]
+Damage Control II
+Mark I Compact Reactor Control Unit
+Co-Processor II
+Nanofiber Internal Structure II
+
+50MN Y-T8 Compact Microwarpdrive
+Large F-S9 Regolith Compact Shield Extender
+Dark Blood Medium Capacitor Booster
+Gistum C-Type Thermal Shield Amplifier
+Highstroke Scoped Guidance Disruptor
+DDO Scoped Tracking Disruptor I
+
+Medium Energy Neutralizer II
+Medium Energy Neutralizer II
+Expanded Probe Launcher II
+Medium Energy Neutralizer II
+Medium Energy Neutralizer II
+
+Medium Processor Overclocking Unit II
+Medium EM Shield Reinforcer II
+
+
+
+Valkyrie II x5
+Infiltrator EV-600 x5
+Infiltrator II x5
+
+Optimal Range Disruption Script x1
+Missile Range Disruption Script x1
+Tracking Speed Disruption Script x1
+Navy Cap Booster 800 x14
+Sisters Core Scanner Probe x8
+Missile Precision Disruption Script x1
+Nanite Repair Paste x200
+Synth Mindflood Booster x2
+

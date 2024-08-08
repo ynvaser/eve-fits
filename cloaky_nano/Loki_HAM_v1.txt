@@ -39,11 +39,16 @@ Nova Rage Heavy Assault Missile x800
 Caldari Navy Nova Heavy Assault Missile x1000
 Mjolnir Rage Heavy Assault Missile x800
 Scourge Javelin Heavy Assault Missile x800
-Caldari Navy Inferno Heavy Assault Missile x1500
-Inferno Javelin Heavy Assault Missile x800
 Mjolnir Javelin Heavy Assault Missile x800
+Inferno Javelin Heavy Assault Missile x800
+Caldari Navy Inferno Heavy Assault Missile x1200
 Caldari Navy Scourge Heavy Assault Missile x1000
 Sisters Combat Scanner Probe x8
 Scourge Rage Heavy Assault Missile x800
 Sisters Core Scanner Probe x8
 Caldari Navy Mjolnir Heavy Assault Missile x1000
+Nanite Repair Paste x200
+Agency 'Overclocker' SB3 Dose I x3
+Cladistic-15 'Krai Veles' Filament x1
+Glorification-15 'Devana' Filament x1
+

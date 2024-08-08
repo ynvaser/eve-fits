@@ -22,10 +22,15 @@ Medium EM Shield Reinforcer II
 
 Valkyrie II x5
 Hammerhead II x5
-Ogre II x4
 Berserker II x4
+Ogre II x4
 Warrior II x5
 Vespa EC-600 x5
 Acolyte II x5
 
 Sisters Core Scanner Probe x8
+Navy Cap Booster 400 x43
+Agency 'Overclocker' SB3 Dose I x5
+Cladistic-15 'Krai Veles' Filament x1
+Glorification-15 'Devana' Filament x1
+
