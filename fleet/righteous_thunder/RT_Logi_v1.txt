@@ -1,0 +1,29 @@
+[Scythe, [SF - Righteous Thunder] Logi v1]
+Capacitor Power Relay II
+Capacitor Power Relay II
+Capacitor Power Relay II
+Capacitor Power Relay II
+Damage Control II
+
+50MN Quad LiF Restrained Microwarpdrive
+Medium Compact Pb-Acid Cap Battery
+Large F-S9 Regolith Compact Shield Extender
+Parallel Enduring Target Painter
+Enduring Multispectrum Shield Hardener
+
+Medium Asymmetric Enduring Remote Shield Booster
+Medium Asymmetric Enduring Remote Shield Booster
+Medium Murky Compact Remote Shield Booster
+
+Medium EM Shield Reinforcer I
+Medium Core Defense Field Extender I
+Medium Core Defense Field Extender I
+
+
+
+Medium Shield Maintenance Bot I x4
+Light Shield Maintenance Bot I x1
+
+Inherent Implants 'Squire' Capacitor Management EM-801 x1
+Inherent Implants 'Squire' Capacitor Systems Operation EO-601 x1
+

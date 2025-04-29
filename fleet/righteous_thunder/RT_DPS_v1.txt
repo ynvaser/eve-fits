@@ -1,0 +1,38 @@
+[Rupture, [SF - Righteous Thunder] DPS v1]
+Gyrostabilizer II
+Gyrostabilizer II
+Gyrostabilizer II
+Tracking Enhancer II
+Damage Control II
+
+50MN Quad LiF Restrained Microwarpdrive
+Large Shield Extender II
+Tracking Computer II
+Sensor Booster II
+
+720mm Howitzer Artillery II
+720mm Howitzer Artillery II
+Light Missile Launcher II
+720mm Howitzer Artillery II
+720mm Howitzer Artillery II
+
+Medium Ancillary Current Router I
+Medium Core Defense Field Extender I
+Medium EM Shield Reinforcer I
+
+
+
+Warrior II x6
+
+Republic Fleet Phased Plasma M x800
+Tremor M x1500
+Optimal Range Script x1
+Republic Fleet EMP M x800
+Tracking Speed Script x1
+Targeting Range Script x1
+Caldari Navy Mjolnir Light Missile x200
+Quake M x1200
+Glorification-15 'Devana' Filament x1
+Cladistic-15 'Krai Perun' Filament x1
+Mobile Medium Warp Disruptor II x1
+
