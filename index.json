@@ -1,0 +1,7 @@
+[
+  { "name": "cloaky_nano", "type": "dir", "path": "cloaky_nano" }
+,
+  { "name": "fleet", "type": "dir", "path": "fleet" }
+,
+  { "name": "recon_nano", "type": "dir", "path": "recon_nano" }
+]
