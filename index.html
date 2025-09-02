@@ -128,10 +128,10 @@
       try {
         let markdown = null;
         try {
-          const res = await fetch('./README.MD');
+          const res = await fetch('./README.md');
           if (res.ok) markdown = await res.text();
           else {
-            const res2 = await fetch('./README.md');
+            const res2 = await fetch('./README.MD');
             if (res2.ok) markdown = await res2.text();
           }
         } catch {}
@@ -191,6 +191,7 @@
       title.textContent = name;
       card.appendChild(title);
 
+      // Create nested ul for folder contents
       const nestedUl = document.createElement('ul');
       nestedUl.style.display = 'none';
       card.appendChild(nestedUl);
