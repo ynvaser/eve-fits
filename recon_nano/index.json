@@ -1,0 +1,9 @@
+[
+  { "name": "Curse_NEUT_TD_v1.txt", "type": "file", "path": "recon_nano/Curse_NEUT_TD_v1.txt" }
+,
+  { "name": "Huginn_ARTY_WEBS.txt", "type": "file", "path": "recon_nano/Huginn_ARTY_WEBS.txt" }
+,
+  { "name": "Lachesis_POINT_DAMPS_v1.txt", "type": "file", "path": "recon_nano/Lachesis_POINT_DAMPS_v1.txt" }
+,
+  { "name": "Rook_HAMS_v1.txt", "type": "file", "path": "recon_nano/Rook_HAMS_v1.txt" }
+]

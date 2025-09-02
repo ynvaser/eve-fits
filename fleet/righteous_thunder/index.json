@@ -1,9 +1,9 @@
 [
-  { "name": "RT_Bubbles_v1.txt", "type": "file", "path": "RT_Bubbles_v1.txt" }
+  { "name": "RT_Bubbles_v1.txt", "type": "file", "path": "fleet/righteous_thunder/RT_Bubbles_v1.txt" }
 ,
-  { "name": "RT_DPS_v1.txt", "type": "file", "path": "RT_DPS_v1.txt" }
+  { "name": "RT_DPS_v1.txt", "type": "file", "path": "fleet/righteous_thunder/RT_DPS_v1.txt" }
 ,
-  { "name": "RT_Links_Boosh_v1.txt", "type": "file", "path": "RT_Links_Boosh_v1.txt" }
+  { "name": "RT_Links_Boosh_v1.txt", "type": "file", "path": "fleet/righteous_thunder/RT_Links_Boosh_v1.txt" }
 ,
-  { "name": "RT_Logi_v1.txt", "type": "file", "path": "RT_Logi_v1.txt" }
+  { "name": "RT_Logi_v1.txt", "type": "file", "path": "fleet/righteous_thunder/RT_Logi_v1.txt" }
 ]
