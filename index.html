@@ -137,9 +137,7 @@
       background: #121212;
     }
   </style>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" 
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -235,7 +233,6 @@
       card.appendChild(nestedUl);
       return { card, title, nestedUl };
     }
-    // Modified: always append files to a UL. Works for all directory levels.
     async function loadDirectory(path, container) {
       const indexPath = path ? `${path}/index.json` : 'index.json';
       try {
@@ -243,10 +240,9 @@
         if (!res.ok) throw new Error('Index JSON not found: ' + indexPath);
         const items = await res.json();
         container.innerHTML = '';
-        // Separate files and folders
+        // Separate folders and files to render folders first, then files
         const folders = items.filter(item => item.type === 'dir');
         const files = items.filter(item => item.type === 'file' && item.name.endsWith('.txt'));
-        // Folders first
         for (const item of folders) {
           const { card, title, nestedUl } = createFolderCard(item.name);
           container.appendChild(card);
@@ -257,12 +253,15 @@
                 nestedUl.dataset.loaded = 'true';
               }
               nestedUl.style.display = 'block';
+              // Update URL hash for folder
+              window.history.replaceState(null, '', '#folder=' + encodeURIComponent(item.path));
             } else {
               nestedUl.style.display = 'none';
+              // Clear hash or set to empty
+              window.history.replaceState(null, '', '#');
             }
           });
         }
-        // Then files
         if (files.length > 0) {
           let fileUl = container.querySelector('ul.topfile-ul');
           if (!fileUl) {
@@ -298,6 +297,13 @@
                   codePre.style.display = 'none';
                   title.addEventListener('click', () => {
                     codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+                    if (codePre.style.display === 'block') {
+                      // Update hash for opened fit
+                      window.history.replaceState(null, '', '#fit=' + encodeURIComponent(item.path));
+                    } else {
+                      // Clear or reset hash on toggle closed
+                      window.history.replaceState(null, '', '#');
+                    }
                   });
                 } catch (e) {
                   console.error('Compression error:', e);
@@ -307,6 +313,11 @@
                   codePre.style.display = 'none';
                   title.addEventListener('click', () => {
                     codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+                    if (codePre.style.display === 'block') {
+                      window.history.replaceState(null, '', '#fit=' + encodeURIComponent(item.path));
+                    } else {
+                      window.history.replaceState(null, '', '#');
+                    }
                   });
                 }
               } else if(content !== null) {
@@ -316,6 +327,11 @@
                 codePre.style.display = 'none';
                 title.addEventListener('click', () => {
                   codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+                  if (codePre.style.display === 'block') {
+                    window.history.replaceState(null, '', '#fit=' + encodeURIComponent(item.path));
+                  } else {
+                    window.history.replaceState(null, '', '#');
+                  }
                 });
               }
             });
@@ -326,21 +342,15 @@
         console.error(err);
       }
     }
-
-    // --- Deep linking logic: open fit and expand all folders by hash ---
     async function openFitByPath(path) {
       const parts = path.split('/').filter(Boolean);
-      let currentPath = '';
       let container = document.getElementById('root-dir-list');
-
-      // Recursively expand folders.
       for (let i = 0; i < parts.length; ++i) {
         const name = parts[i];
         if (i < parts.length - 1) {
-          // Folder: find and expand
           const folderCard = Array.from(container.children).find(
             node => node.querySelector && node.querySelector('.folder-title') && 
-                   node.querySelector('.folder-title').textContent === name
+                node.querySelector('.folder-title').textContent === name
           );
           if (!folderCard) return false;
           const folderTitle = folderCard.querySelector('.folder-title');
@@ -351,62 +361,50 @@
           }
           container = nestedUl;
         } else {
-          // File: try both raw and title text for match
           const li = Array.from(container.querySelectorAll('li')).find(
             liEl => liEl.querySelector && liEl.querySelector('.clickable') && (
-               liEl.querySelector('.clickable').textContent === name // raw match
-               // No extracted title here, to keep robust
+              liEl.querySelector('.clickable').textContent === name
             )
           );
           if (li) {
             li.querySelector('.clickable').click();
-            // Optionally scroll into view
             li.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         }
       }
       return true;
     }
-
-    // --- On page load, handle hash fragment for deep linking ---
     window.addEventListener('DOMContentLoaded', async () => {
       loadReadme();
       const rootContainer = document.getElementById('root-dir-list');
       await loadDirectory('', rootContainer);
-
-      // Open specific fit if hash is present
       const hash = window.location.hash;
       if (hash.startsWith('#fit=')) {
         const fitPath = decodeURIComponent(hash.substring(5));
         setTimeout(() => openFitByPath(fitPath), 350);
+      } else if (hash.startsWith('#folder=')) {
+        const folderPath = decodeURIComponent(hash.substring(8));
+        setTimeout(async () => {
+          // Expand folder only, don't try open file
+          const parts = folderPath.split('/').filter(Boolean);
+          let container = rootContainer;
+          for (const name of parts) {
+            const folderCard = Array.from(container.children).find(
+              node => node.querySelector && node.querySelector('.folder-title') &&
+                      node.querySelector('.folder-title').textContent === name
+            );
+            if (!folderCard) break;
+            const folderTitle = folderCard.querySelector('.folder-title');
+            const nestedUl = folderCard.querySelector('ul');
+            if (nestedUl.style.display === 'none') {
+              folderTitle.click();
+              await new Promise(resolve => setTimeout(resolve, 200));
+            }
+            container = nestedUl;
+          }
+        }, 350);
       }
     });
-	
-	title.addEventListener('click', async () => {
-  if (nestedUl.style.display === 'none') {
-    if (!nestedUl.dataset.loaded) {
-      await loadDirectory(item.path, nestedUl);
-      nestedUl.dataset.loaded = 'true';
-    }
-    nestedUl.style.display = 'block';
-
-    // Update URL hash to current folder path
-    window.history.replaceState(null, '', '#folder=' + encodeURIComponent(item.path));
-  } else {
-    nestedUl.style.display = 'none';
-
-    // Clear URL hash or revert to previous or empty
-    window.history.replaceState(null, '', '#');
-  }
-});
-title.addEventListener('click', () => {
-  codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-
-  // Update URL hash with fit path
-  window.history.replaceState(null, '', '#fit=' + encodeURIComponent(item.path));
-});
-
-
   </script>
 </body>
 </html>
