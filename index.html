@@ -5,35 +5,30 @@
   <title>Davos's Fits</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Elegant Styling -->
   <style>
     body {
-	  background-image: url('./background.jpg'); /* Use actual image filename or URL */
-	  background-repeat: no-repeat;
-	  background-size: cover;
-	  background-position: center center;
-	  background-attachment: fixed;
-	  color: #e0e0e0;
-	  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	  padding: 2rem 1rem;
-	  min-height: 100vh;
-	  position: relative;
-	}
-
-	body::before {
-	  content: "";
-	  position: fixed;
-	  top: 0; left: 0; right: 0; bottom: 0;
-	  background: rgba(18, 18, 18, 0.7);
-	  pointer-events: none;
-	  z-index: -1;
-	}
-    h1,
-    h2 {
+      background-image: url('./background.jpg'); /* Set your image name */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      color: #e0e0e0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(18, 18, 18, 0.7);
+      pointer-events: none;
+      z-index: -1;
+    }
+    h1, h2 {
       color: #a0c4ff;
       font-weight: 600;
       margin-bottom: 1rem;
@@ -127,7 +122,6 @@
       border-color: #95a1f9;
       text-decoration: none;
     }
-    /* Scrollbar for README and pre */
     #readme-container::-webkit-scrollbar,
     pre::-webkit-scrollbar {
       width: 8px;
@@ -143,22 +137,19 @@
       background: #121212;
     }
   </style>
-  <!-- Google Fonts Source Code Pro for code blocks -->
   <link 
     href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" 
     rel="stylesheet" />
-  <!-- Marked.js for Markdown -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <div class="container" style="max-width: 900px;">
+    <h1 class="mb-4 text-center">Davos's Fits</h1>
     <section id="readme-container" class="mb-5" aria-label="README content">
       <div id="readme-content">Loading README.md...</div>
     </section>
-
     <div id="root-dir-list" class="mb-4" aria-label="Repository directory listing"></div>
   </div>
-
   <script>
     async function loadReadme() {
       try {
@@ -171,7 +162,6 @@
             if (res2.ok) markdown = await res2.text();
           }
         } catch {}
-
         if (markdown) {
           document.getElementById('readme-content').innerHTML = marked.parse(markdown);
         } else {
@@ -183,7 +173,6 @@
           'No README.md found or could not load.';
       }
     }
-
     function extractTitleFromContent(text) {
       const trimmed = text.trimStart();
       if (!trimmed.startsWith('[')) return null;
@@ -196,8 +185,6 @@
       }
       return candidate;
     }
-
-    // gzip compress Uint8Array, returns Promise<Uint8Array>
     function gzipCompress(data) {
       if (!('CompressionStream' in window)) {
         return Promise.reject(new Error('CompressionStream is not supported in this browser'));
@@ -206,11 +193,8 @@
       const writer = cs.writable.getWriter();
       writer.write(data);
       writer.close();
-
       return new Response(cs.readable).arrayBuffer().then(buf => new Uint8Array(buf));
     }
-
-    // base64 encode Uint8Array
     function base64Encode(bytes) {
       let binary = '';
       for (let i = 0; i < bytes.byteLength; i++) {
@@ -218,13 +202,11 @@
       }
       return btoa(binary);
     }
-
     async function processFileName(item, title) {
       try {
         const res = await fetch(item.path);
         if (!res.ok) throw new Error('File not found');
         const text = await res.text();
-
         const extractedTitle = extractTitleFromContent(text);
         if (extractedTitle !== null) {
           title.textContent = extractedTitle;
@@ -241,120 +223,164 @@
         return { content: null, shouldShowLink: false };
       }
     }
-
     function createFolderCard(name) {
       const card = document.createElement('div');
       card.className = 'folder-card';
-
       const title = document.createElement('div');
       title.className = 'folder-title clickable';
       title.textContent = name;
       card.appendChild(title);
-
       const nestedUl = document.createElement('ul');
       nestedUl.style.display = 'none';
       card.appendChild(nestedUl);
-
       return { card, title, nestedUl };
     }
-
-   async function loadDirectory(path, container) {
-  const indexPath = path ? `${path}/index.json` : 'index.json';
-  try {
-    const res = await fetch(indexPath);
-    if (!res.ok) throw new Error('Index JSON not found: ' + indexPath);
-    const items = await res.json();
-    container.innerHTML = '';
-
-    for (const item of items) {
-      if (item.type === 'dir') {
-        const { card, title, nestedUl } = createFolderCard(item.name);
-        container.appendChild(card);
-        title.addEventListener('click', async () => {
-          if (nestedUl.style.display === 'none') {
-            if (!nestedUl.dataset.loaded) {
-              await loadDirectory(item.path, nestedUl);
-              nestedUl.dataset.loaded = 'true';
+    // Modified: always append files to a UL. Works for all directory levels.
+    async function loadDirectory(path, container) {
+      const indexPath = path ? `${path}/index.json` : 'index.json';
+      try {
+        const res = await fetch(indexPath);
+        if (!res.ok) throw new Error('Index JSON not found: ' + indexPath);
+        const items = await res.json();
+        container.innerHTML = '';
+        // Separate files and folders
+        const folders = items.filter(item => item.type === 'dir');
+        const files = items.filter(item => item.type === 'file' && item.name.endsWith('.txt'));
+        // Folders first
+        for (const item of folders) {
+          const { card, title, nestedUl } = createFolderCard(item.name);
+          container.appendChild(card);
+          title.addEventListener('click', async () => {
+            if (nestedUl.style.display === 'none') {
+              if (!nestedUl.dataset.loaded) {
+                await loadDirectory(item.path, nestedUl);
+                nestedUl.dataset.loaded = 'true';
+              }
+              nestedUl.style.display = 'block';
+            } else {
+              nestedUl.style.display = 'none';
             }
-            nestedUl.style.display = 'block';
-          } else {
-            nestedUl.style.display = 'none';
-          }
-        });
-      } else if (item.type === 'file' && item.name.endsWith('.txt')) {
-        // Always create a <li> for files, and if container is not a UL, make one
-        let listParent = container;
-        if (container.tagName !== 'UL') {
+          });
+        }
+        // Then files
+        if (files.length > 0) {
           let fileUl = container.querySelector('ul.topfile-ul');
           if (!fileUl) {
             fileUl = document.createElement('ul');
             fileUl.className = 'topfile-ul';
             container.appendChild(fileUl);
           }
-          listParent = fileUl;
-        }
-
-        const li = document.createElement('li');
-        const title = document.createElement('span');
-        title.className = 'clickable filename-red';
-        title.textContent = item.name;
-        li.appendChild(title);
-        listParent.appendChild(li);
-
-        processFileName(item, title).then(async ({content, shouldShowLink}) => {
-          if (shouldShowLink && content !== null) {
-            title.classList.remove('filename-red');
-            try {
-              const encoder = new TextEncoder();
-              const encoded = encoder.encode(content);
-              const compressed = await gzipCompress(encoded);
-              const base64 = base64Encode(compressed);
-              const eveShipUrl = `https://eveship.fit/?fit=eft:${base64}`;
-              const link = document.createElement('a');
-              link.href = eveShipUrl;
-              link.target = '_blank';
-              link.className = 'evship-link';
-              link.textContent = '-> Simulate fitting';
-              li.appendChild(link);
-
-              const codePre = document.createElement('pre');
-              codePre.textContent = content;
-              li.appendChild(codePre);
-              codePre.style.display = 'none';
-              title.addEventListener('click', () => {
-                codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-              });
-            } catch (e) {
-              console.error('Compression error:', e);
-              const codePre = document.createElement('pre');
-              codePre.textContent = content;
-              li.appendChild(codePre);
-              codePre.style.display = 'none';
-              title.addEventListener('click', () => {
-                codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-              });
-            }
-          } else if(content !== null) {
-            const codePre = document.createElement('pre');
-            codePre.textContent = content;
-            li.appendChild(codePre);
-            codePre.style.display = 'none';
-            title.addEventListener('click', () => {
-              codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+          for (const item of files) {
+            const li = document.createElement('li');
+            const title = document.createElement('span');
+            title.className = 'clickable filename-red';
+            title.textContent = item.name;
+            li.appendChild(title);
+            fileUl.appendChild(li);
+            processFileName(item, title).then(async ({content, shouldShowLink}) => {
+              if (shouldShowLink && content !== null) {
+                title.classList.remove('filename-red');
+                try {
+                  const encoder = new TextEncoder();
+                  const encoded = encoder.encode(content);
+                  const compressed = await gzipCompress(encoded);
+                  const base64 = base64Encode(compressed);
+                  const eveShipUrl = `https://eveship.fit/?fit=eft:${base64}`;
+                  const link = document.createElement('a');
+                  link.href = eveShipUrl;
+                  link.target = '_blank';
+                  link.className = 'evship-link';
+                  link.textContent = '-> Simulate fitting';
+                  li.appendChild(link);
+                  const codePre = document.createElement('pre');
+                  codePre.textContent = content;
+                  li.appendChild(codePre);
+                  codePre.style.display = 'none';
+                  title.addEventListener('click', () => {
+                    codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+                  });
+                } catch (e) {
+                  console.error('Compression error:', e);
+                  const codePre = document.createElement('pre');
+                  codePre.textContent = content;
+                  li.appendChild(codePre);
+                  codePre.style.display = 'none';
+                  title.addEventListener('click', () => {
+                    codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+                  });
+                }
+              } else if(content !== null) {
+                const codePre = document.createElement('pre');
+                codePre.textContent = content;
+                li.appendChild(codePre);
+                codePre.style.display = 'none';
+                title.addEventListener('click', () => {
+                  codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+                });
+              }
             });
           }
-        });
+        }
+      } catch (err) {
+        container.textContent = 'Could not load directory contents.';
+        console.error(err);
       }
     }
-  } catch (err) {
-    container.textContent = 'Could not load directory contents.';
-    console.error(err);
-  }
-}
-   
-    loadReadme();
-    const rootContainer = document.getElementById('root-dir-list');
-    loadDirectory('', rootContainer);
+
+    // --- Deep linking logic: open fit and expand all folders by hash ---
+    async function openFitByPath(path) {
+      const parts = path.split('/').filter(Boolean);
+      let currentPath = '';
+      let container = document.getElementById('root-dir-list');
+
+      // Recursively expand folders.
+      for (let i = 0; i < parts.length; ++i) {
+        const name = parts[i];
+        if (i < parts.length - 1) {
+          // Folder: find and expand
+          const folderCard = Array.from(container.children).find(
+            node => node.querySelector && node.querySelector('.folder-title') && 
+                   node.querySelector('.folder-title').textContent === name
+          );
+          if (!folderCard) return false;
+          const folderTitle = folderCard.querySelector('.folder-title');
+          const nestedUl = folderCard.querySelector('ul');
+          if (nestedUl.style.display === 'none') {
+            folderTitle.click();
+            await new Promise(resolve => setTimeout(resolve, 200));
+          }
+          container = nestedUl;
+        } else {
+          // File: try both raw and title text for match
+          const li = Array.from(container.querySelectorAll('li')).find(
+            liEl => liEl.querySelector && liEl.querySelector('.clickable') && (
+               liEl.querySelector('.clickable').textContent === name // raw match
+               // No extracted title here, to keep robust
+            )
+          );
+          if (li) {
+            li.querySelector('.clickable').click();
+            // Optionally scroll into view
+            li.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }
+      }
+      return true;
+    }
+
+    // --- On page load, handle hash fragment for deep linking ---
+    window.addEventListener('DOMContentLoaded', async () => {
+      loadReadme();
+      const rootContainer = document.getElementById('root-dir-list');
+      await loadDirectory('', rootContainer);
+
+      // Open specific fit if hash is present
+      const hash = window.location.hash;
+      if (hash.startsWith('#fit=')) {
+        const fitPath = decodeURIComponent(hash.substring(5));
+        setTimeout(() => openFitByPath(fitPath), 350);
+      }
+    });
   </script>
 </body>
 </html>
