@@ -381,6 +381,32 @@
         setTimeout(() => openFitByPath(fitPath), 350);
       }
     });
+	
+	title.addEventListener('click', async () => {
+  if (nestedUl.style.display === 'none') {
+    if (!nestedUl.dataset.loaded) {
+      await loadDirectory(item.path, nestedUl);
+      nestedUl.dataset.loaded = 'true';
+    }
+    nestedUl.style.display = 'block';
+
+    // Update URL hash to current folder path
+    window.history.replaceState(null, '', '#folder=' + encodeURIComponent(item.path));
+  } else {
+    nestedUl.style.display = 'none';
+
+    // Clear URL hash or revert to previous or empty
+    window.history.replaceState(null, '', '#');
+  }
+});
+title.addEventListener('click', () => {
+  codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+
+  // Update URL hash with fit path
+  window.history.replaceState(null, '', '#fit=' + encodeURIComponent(item.path));
+});
+
+
   </script>
 </body>
 </html>
