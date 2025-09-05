@@ -258,102 +258,100 @@
       return { card, title, nestedUl };
     }
 
-    async function loadDirectory(path, container) {
-      const indexPath = path ? `${path}/index.json` : 'index.json';
+   async function loadDirectory(path, container) {
+  const indexPath = path ? `${path}/index.json` : 'index.json';
+  try {
+    const res = await fetch(indexPath);
+    if (!res.ok) throw new Error('Index JSON not found: ' + indexPath);
+    const items = await res.json();
+    container.innerHTML = '';
 
-      try {
-        const res = await fetch(indexPath);
-        if (!res.ok) throw new Error('Index JSON not found: ' + indexPath);
-        const items = await res.json();
+    for (const item of items) {
+      if (item.type === 'dir') {
+        const { card, title, nestedUl } = createFolderCard(item.name);
+        container.appendChild(card);
+        title.addEventListener('click', async () => {
+          if (nestedUl.style.display === 'none') {
+            if (!nestedUl.dataset.loaded) {
+              await loadDirectory(item.path, nestedUl);
+              nestedUl.dataset.loaded = 'true';
+            }
+            nestedUl.style.display = 'block';
+          } else {
+            nestedUl.style.display = 'none';
+          }
+        });
+      } else if (item.type === 'file' && item.name.endsWith('.txt')) {
+        // Always create a <li> for files, and if container is not a UL, make one
+        let listParent = container;
+        if (container.tagName !== 'UL') {
+          let fileUl = container.querySelector('ul.topfile-ul');
+          if (!fileUl) {
+            fileUl = document.createElement('ul');
+            fileUl.className = 'topfile-ul';
+            container.appendChild(fileUl);
+          }
+          listParent = fileUl;
+        }
 
-        container.innerHTML = '';
+        const li = document.createElement('li');
+        const title = document.createElement('span');
+        title.className = 'clickable filename-red';
+        title.textContent = item.name;
+        li.appendChild(title);
+        listParent.appendChild(li);
 
-        for (const item of items) {
-          if (item.type === 'dir') {
-            const { card, title, nestedUl } = createFolderCard(item.name);
-            container.appendChild(card);
+        processFileName(item, title).then(async ({content, shouldShowLink}) => {
+          if (shouldShowLink && content !== null) {
+            title.classList.remove('filename-red');
+            try {
+              const encoder = new TextEncoder();
+              const encoded = encoder.encode(content);
+              const compressed = await gzipCompress(encoded);
+              const base64 = base64Encode(compressed);
+              const eveShipUrl = `https://eveship.fit/?fit=eft:${base64}`;
+              const link = document.createElement('a');
+              link.href = eveShipUrl;
+              link.target = '_blank';
+              link.className = 'evship-link';
+              link.textContent = '-> Simulate fitting';
+              li.appendChild(link);
 
-            title.addEventListener('click', async () => {
-              if (nestedUl.style.display === 'none') {
-                if (!nestedUl.dataset.loaded) {
-                  await loadDirectory(item.path, nestedUl);
-                  nestedUl.dataset.loaded = 'true';
-                }
-                nestedUl.style.display = 'block';
-              } else {
-                nestedUl.style.display = 'none';
-              }
-            });
-          } else if (item.type === 'file' && item.name.endsWith('.txt')) {
-            if (!(container.tagName === 'UL')) continue;
-
-            const li = document.createElement('li');
-            const title = document.createElement('span');
-            title.className = 'clickable filename-red';
-            title.textContent = item.name;
-            li.appendChild(title);
-
-            container.appendChild(li);
-
-            processFileName(item, title).then(async ({content, shouldShowLink}) => {
-              if (shouldShowLink && content !== null) {
-                title.classList.remove('filename-red');
-
-                try {
-                  const encoder = new TextEncoder();
-                  const encoded = encoder.encode(content);
-                  const compressed = await gzipCompress(encoded);
-                  const base64 = base64Encode(compressed);
-
-                  const eveShipUrl = `https://eveship.fit/?fit=eft:${base64}`;
-                  const link = document.createElement('a');
-                  link.href = eveShipUrl;
-                  link.target = '_blank';
-                  link.className = 'evship-link';
-                  link.textContent = '-> Simulate fitting';
-
-                  li.appendChild(link);
-
-                  // Clicking filename toggles showing raw content in <pre>
-                  const codePre = document.createElement('pre');
-                  codePre.textContent = content;
-                  li.appendChild(codePre);
-                  codePre.style.display = 'none';
-
-                  title.addEventListener('click', () => {
-                    codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-                  });
-
-                } catch (e) {
-                  console.error('Compression error:', e);
-                  // Fallback, just show raw text content
-                  const codePre = document.createElement('pre');
-                  codePre.textContent = content;
-                  li.appendChild(codePre);
-                  codePre.style.display = 'none';
-                  title.addEventListener('click', () => {
-                    codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-                  });
-                }
-              } else if(content !== null) {
-                // Not valid special file — show raw content on click
-                const codePre = document.createElement('pre');
-                codePre.textContent = content;
-                li.appendChild(codePre);
-                codePre.style.display = 'none';
-                title.addEventListener('click', () => {
-                  codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-                });
-              }
+              const codePre = document.createElement('pre');
+              codePre.textContent = content;
+              li.appendChild(codePre);
+              codePre.style.display = 'none';
+              title.addEventListener('click', () => {
+                codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+              });
+            } catch (e) {
+              console.error('Compression error:', e);
+              const codePre = document.createElement('pre');
+              codePre.textContent = content;
+              li.appendChild(codePre);
+              codePre.style.display = 'none';
+              title.addEventListener('click', () => {
+                codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+              });
+            }
+          } else if(content !== null) {
+            const codePre = document.createElement('pre');
+            codePre.textContent = content;
+            li.appendChild(codePre);
+            codePre.style.display = 'none';
+            title.addEventListener('click', () => {
+              codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
             });
           }
-        }
-      } catch (err) {
-        container.textContent = 'Could not load directory contents.';
-        console.error(err);
+        });
       }
     }
-
+  } catch (err) {
+    container.textContent = 'Could not load directory contents.';
+    console.error(err);
+  }
+}
+   
     loadReadme();
     const rootContainer = document.getElementById('root-dir-list');
     loadDirectory('', rootContainer);
