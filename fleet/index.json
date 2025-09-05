@@ -1,3 +1,5 @@
 [
+  { "name": "bash", "type": "dir", "path": "fleet/bash" }
+,
   { "name": "righteous_thunder", "type": "dir", "path": "fleet/righteous_thunder" }
 ]
