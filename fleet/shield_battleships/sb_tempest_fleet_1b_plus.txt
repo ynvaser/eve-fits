@@ -11,7 +11,7 @@ Damage Control II
 Large Shield Extender II
 Large Shield Extender II
 Multispectrum Shield Hardener II
-Warp Disruptor II
+Multispectrum Shield Hardener II
 
 800mm Repeating Cannon II
 800mm Repeating Cannon II
@@ -41,9 +41,10 @@ Synth Drop Booster x1
 Agency 'Overclocker' SB3 Dose I x1
 Warp Scrambler II x1
 Core Probe Launcher I x1
+Warp Disruptor II x1
 Target Painter II x1
 Stasis Webifier II x1
-Glorification-5 'Devana' Filament x1
 Cladistic-5 'Krai Svarog' Filament x1
+Glorification-5 'Devana' Filament x1
 Mobile Depot x1
 

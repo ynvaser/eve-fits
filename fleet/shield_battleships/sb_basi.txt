@@ -22,4 +22,12 @@ Medium Core Defense Field Extender II
 
 Hornet EC-300 x5
 
+Nanite Repair Paste x150
+Core Scanner Probe I x8
+Agency 'Overclocker' SB3 Dose I x1
+Standard Mindflood Booster x3
+Core Probe Launcher I x1
+Glorification-5 'Devana' Filament x1
+Cladistic-5 'Krai Svarog' Filament x1
+Mobile Depot x1
 
