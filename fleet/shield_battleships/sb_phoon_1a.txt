@@ -1,0 +1,51 @@
+[Typhoon, Shield Battleships - DPS 1a]
+Damage Control II
+Ballistic Control System II
+Ballistic Control System II
+Ballistic Control System II
+Missile Guidance Enhancer II
+Missile Guidance Enhancer II
+Co-Processor II
+
+500MN Quad LiF Restrained Microwarpdrive
+Large Shield Extender II
+Large Shield Extender II
+Initiated Compact Warp Disruptor
+Multispectrum Shield Hardener II
+
+Torpedo Launcher II
+Torpedo Launcher II
+Torpedo Launcher II
+Torpedo Launcher II
+Torpedo Launcher II
+Torpedo Launcher II
+Heavy Infectious Scoped Energy Neutralizer
+
+Large Core Defense Field Extender I
+Large Core Defense Field Extender I
+Large Core Defense Field Extender I
+
+
+
+Garde II x5
+
+Nova Javelin Torpedo x1000
+Scourge Rage Torpedo x1740
+Mjolnir Rage Torpedo x1500
+Inferno Javelin Torpedo x1000
+Mjolnir Javelin Torpedo x1000
+Scourge Javelin Torpedo x1000
+Nova Rage Torpedo x1500
+Inferno Rage Torpedo x1500
+Nanite Repair Paste x150
+Core Scanner Probe I x8
+Synth Crash Booster x1
+Agency 'Overclocker' SB3 Dose I x1
+Warp Scrambler II x1
+Core Probe Launcher I x1
+Target Painter II x1
+Stasis Webifier II x1
+Cladistic-5 'Krai Svarog' Filament x1
+Glorification-5 'Devana' Filament x1
+Mobile Depot x1
+
