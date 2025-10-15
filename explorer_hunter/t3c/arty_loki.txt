@@ -1,0 +1,39 @@
+[Loki, Explorer Hunter Arty (2025)]
+Tracking Enhancer II
+Tracking Enhancer II
+Signal Amplifier II
+Signal Amplifier II
+Signal Amplifier II
+
+Warp Scrambler II
+50MN Quad LiF Restrained Microwarpdrive
+Tracking Computer II
+Warp Disruptor II
+
+720mm Howitzer Artillery II
+Covert Ops Cloaking Device II
+720mm Howitzer Artillery II
+720mm Howitzer Artillery II
+Expanded Probe Launcher II
+720mm Howitzer Artillery II
+Small Tractor Beam II
+720mm Howitzer Artillery II
+
+Medium Targeting Systems Stabilizer II
+Medium Targeting Systems Stabilizer II
+Medium Targeting Systems Stabilizer II
+
+Loki Core - Dissolution Sequencer
+Loki Defensive - Covert Reconfiguration
+Loki Offensive - Projectile Scoping Array
+Loki Propulsion - Intercalated Nanofibers
+
+
+Warrior II x5
+
+Republic Fleet EMP M x2000
+Tracking Speed Script x1
+Tremor M x2000
+Quake M x2100
+Optimal Range Script x1
+

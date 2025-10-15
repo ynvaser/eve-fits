@@ -1,7 +1,7 @@
 [
-  { "name": "cloaky_nano", "type": "dir", "path": "cloaky_nano" }
+  { "name": "explorer_hunter", "type": "dir", "path": "explorer_hunter" }
 ,
   { "name": "fleet", "type": "dir", "path": "fleet" }
 ,
-  { "name": "recon_nano", "type": "dir", "path": "recon_nano" }
+  { "name": "nano", "type": "dir", "path": "nano" }
 ]

@@ -1,0 +1,9 @@
+[
+  { "name": "em_hound.txt", "type": "file", "path": "explorer_hunter/rocket_bomber/em_hound.txt" }
+,
+  { "name": "em_manticore.txt", "type": "file", "path": "explorer_hunter/rocket_bomber/em_manticore.txt" }
+,
+  { "name": "em_nemesis.txt", "type": "file", "path": "explorer_hunter/rocket_bomber/em_nemesis.txt" }
+,
+  { "name": "em_purifier.txt", "type": "file", "path": "explorer_hunter/rocket_bomber/em_purifier.txt" }
+]

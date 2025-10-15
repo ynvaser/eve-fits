@@ -1,0 +1,5 @@
+[
+  { "name": "cloaky", "type": "dir", "path": "nano/cloaky" }
+,
+  { "name": "orthrus_cheap_rlml.txt", "type": "file", "path": "nano/orthrus_cheap_rlml.txt" }
+]

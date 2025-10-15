@@ -1,0 +1,5 @@
+[
+  { "name": "rocket_bomber", "type": "dir", "path": "explorer_hunter/rocket_bomber" }
+,
+  { "name": "t3c", "type": "dir", "path": "explorer_hunter/t3c" }
+]
