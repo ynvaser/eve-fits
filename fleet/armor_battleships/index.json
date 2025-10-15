@@ -5,6 +5,8 @@
 ,
   { "name": "ab_phoon_fleet_1a_plus.txt", "type": "file", "path": "fleet/armor_battleships/ab_phoon_fleet_1a_plus.txt" }
 ,
+  { "name": "ab_suicide_scorp.txt", "type": "file", "path": "fleet/armor_battleships/ab_suicide_scorp.txt" }
+,
   { "name": "ab_tempest_1b.txt", "type": "file", "path": "fleet/armor_battleships/ab_tempest_1b.txt" }
 ,
   { "name": "ab_tempest_fleet_1b_plus.txt", "type": "file", "path": "fleet/armor_battleships/ab_tempest_fleet_1b_plus.txt" }
