@@ -1,13 +1,13 @@
 [
   { "name": "ab_logi.txt", "type": "file", "path": "fleet/armor_battleships/ab_logi.txt" }
 ,
-  { "name": "ab_neut_ecm_scorp.txt", "type": "file", "path": "fleet/armor_battleships/ab_neut_ecm_scorp.txt" }
-,
   { "name": "ab_phoon_1a.txt", "type": "file", "path": "fleet/armor_battleships/ab_phoon_1a.txt" }
 ,
   { "name": "ab_phoon_fleet_1a_plus.txt", "type": "file", "path": "fleet/armor_battleships/ab_phoon_fleet_1a_plus.txt" }
 ,
-  { "name": "ab_smartbomb_burst_ecm_scorp.txt", "type": "file", "path": "fleet/armor_battleships/ab_smartbomb_burst_ecm_scorp.txt" }
+  { "name": "ab_scorp_neut_ecm.txt", "type": "file", "path": "fleet/armor_battleships/ab_scorp_neut_ecm.txt" }
+,
+  { "name": "ab_scorp_smartbomb_burst_ecm.txt", "type": "file", "path": "fleet/armor_battleships/ab_scorp_smartbomb_burst_ecm.txt" }
 ,
   { "name": "ab_tempest_1b.txt", "type": "file", "path": "fleet/armor_battleships/ab_tempest_1b.txt" }
 ,
