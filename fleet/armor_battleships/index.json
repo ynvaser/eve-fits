@@ -1,11 +1,11 @@
 [
+  { "name": "ab_ecm_scorp.txt", "type": "file", "path": "fleet/armor_battleships/ab_ecm_scorp.txt" }
+,
   { "name": "ab_logi.txt", "type": "file", "path": "fleet/armor_battleships/ab_logi.txt" }
 ,
   { "name": "ab_phoon_1a.txt", "type": "file", "path": "fleet/armor_battleships/ab_phoon_1a.txt" }
 ,
   { "name": "ab_phoon_fleet_1a_plus.txt", "type": "file", "path": "fleet/armor_battleships/ab_phoon_fleet_1a_plus.txt" }
-,
-  { "name": "ab_ecm_scorp.txt", "type": "file", "path": "fleet/armor_battleships/ab_ecm_scorp.txt" }
 ,
   { "name": "ab_tempest_1b.txt", "type": "file", "path": "fleet/armor_battleships/ab_tempest_1b.txt" }
 ,
