@@ -1,0 +1,36 @@
+[Scorpion, Armor Battleships - Neuts/ECM]
+1600mm Steel Plates II
+Reactive Armor Hardener
+Multispectrum Energized Membrane II
+Multispectrum Energized Membrane II
+Explosive Energized Membrane II
+
+Large Micro Jump Drive
+Gravimetric ECM II
+Gravimetric ECM II
+Heavy Capacitor Booster II
+Gravimetric ECM II
+Gravimetric ECM II
+Gravimetric ECM II
+500MN Quad LiF Restrained Microwarpdrive
+
+Heavy Gremlin Compact Energy Neutralizer
+Heavy Gremlin Compact Energy Neutralizer
+Auto Targeting System I
+Heavy Gremlin Compact Energy Neutralizer
+Heavy Gremlin Compact Energy Neutralizer
+
+Large Trimark Armor Pump I
+Large Trimark Armor Pump I
+Large Trimark Armor Pump I
+
+
+
+Ogre II x3
+
+Navy Cap Booster 3200 x6
+Nanite Repair Paste x200
+Magnetometric ECM II x5
+Ladar ECM II x5
+Radar ECM II x5
+
