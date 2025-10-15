@@ -1,5 +1,7 @@
 [
   { "name": "cloaky", "type": "dir", "path": "nano/cloaky" }
 ,
+  { "name": "eni_cheap_rail.txt", "type": "file", "path": "nano/eni_cheap_rail.txt" }
+,
   { "name": "orthrus_cheap_rlml.txt", "type": "file", "path": "nano/orthrus_cheap_rlml.txt" }
 ]

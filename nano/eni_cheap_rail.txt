@@ -1,0 +1,37 @@
+[Exequror Navy Issue, Budget Nano (2025)]
+Damage Control II
+Multispectrum Energized Membrane II
+Medium Ancillary Armor Repairer
+Magnetic Field Stabilizer II
+Magnetic Field Stabilizer II
+800mm Crystalline Carbonide Restrained Plates
+
+Medium F-RX Compact Capacitor Booster
+50MN Quad LiF Restrained Microwarpdrive
+Dread Guristas Warp Disruptor
+Sensor Booster II
+
+250mm Railgun II
+250mm Railgun II
+Auto Targeting System I
+250mm Railgun II
+250mm Railgun II
+
+Medium Polycarbon Engine Housing II
+Medium Hybrid Locus Coordinator II
+Medium Ancillary Current Router I
+
+
+
+Warrior II x5
+
+Javelin M x1200
+ECCM Script x1
+Spike M x1500
+Caldari Navy Antimatter Charge M x1500
+Navy Cap Booster 800 x16
+Targeting Range Script x1
+Scan Resolution Script x1
+Caldari Navy Thorium Charge M x1500
+Nanite Repair Paste x250
+
