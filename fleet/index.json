@@ -3,6 +3,8 @@
 ,
   { "name": "bash", "type": "dir", "path": "fleet/bash" }
 ,
+  { "name": "long_range_bombers", "type": "dir", "path": "fleet/long_range_bombers" }
+,
   { "name": "righteous_thunder", "type": "dir", "path": "fleet/righteous_thunder" }
 ,
   { "name": "shield_battleships", "type": "dir", "path": "fleet/shield_battleships" }

@@ -1,0 +1,29 @@
+[Purifier, Long Range (2025)]
+Ballistic Control System II
+Missile Guidance Enhancer II
+Missile Guidance Enhancer II
+
+F-90 Compact Sensor Booster
+Missile Guidance Computer II
+F-90 Compact Sensor Booster
+
+Torpedo Launcher II
+Covert Ops Cloaking Device II
+Torpedo Launcher II
+Auto Targeting System I
+Torpedo Launcher II
+
+Small Hydraulic Bay Thrusters II
+Small Rocket Fuel Cache Partition II
+
+
+
+
+Caldari Navy Mjolnir Torpedo x1000
+Mjolnir Rage Torpedo x1500
+Mjolnir Javelin Torpedo x1500
+Targeting Range Script x2
+Missile Range Script x1
+Scan Resolution Script x2
+Missile Precision Script x1
+

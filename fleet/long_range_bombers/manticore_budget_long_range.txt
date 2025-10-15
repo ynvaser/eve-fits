@@ -1,0 +1,26 @@
+[Manticore, Long Range Budget (2025)]
+Ballistic Control System II
+Missile Guidance Enhancer II
+
+Sensor Booster II
+Missile Guidance Computer II
+Sensor Booster II
+Missile Guidance Computer II
+
+Prototype 'Arbalest' Torpedo Launcher
+Covert Ops Cloaking Device II
+Prototype 'Arbalest' Torpedo Launcher
+Auto Targeting System I
+Prototype 'Arbalest' Torpedo Launcher
+
+Small Hydraulic Bay Thrusters II
+Small Rocket Fuel Cache Partition II
+
+
+
+Targeting Range Script x2
+Caldari Navy Scourge Torpedo x2500
+Missile Range Script x2
+Scan Resolution Script x2
+Missile Precision Script x2
+

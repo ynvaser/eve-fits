@@ -1,0 +1,29 @@
+[Manticore, Long Range (2025)]
+Ballistic Control System II
+Missile Guidance Enhancer II
+
+Sensor Booster II
+Missile Guidance Computer II
+Sensor Booster II
+Missile Guidance Computer II
+
+Torpedo Launcher II
+Covert Ops Cloaking Device II
+Torpedo Launcher II
+Auto Targeting System I
+Torpedo Launcher II
+
+Small Hydraulic Bay Thrusters II
+Small Rocket Fuel Cache Partition II
+
+
+
+
+Scourge Javelin Torpedo x1500
+Targeting Range Script x2
+Scourge Rage Torpedo x1500
+Caldari Navy Scourge Torpedo x1000
+Missile Range Script x2
+Scan Resolution Script x2
+Missile Precision Script x2
+

@@ -1,0 +1,29 @@
+[Nemesis, Long Range (2025)]
+Crosslink Compact Ballistic Control System
+Missile Guidance Enhancer II
+
+F-90 Compact Sensor Booster
+Missile Guidance Computer II
+F-90 Compact Sensor Booster
+Missile Guidance Computer II
+
+Torpedo Launcher II
+Covert Ops Cloaking Device II
+Torpedo Launcher II
+Auto Targeting System I
+Torpedo Launcher II
+
+Small Hydraulic Bay Thrusters II
+Small Rocket Fuel Cache Partition II
+
+
+
+
+Scan Resolution Script x2
+Inferno Javelin Torpedo x1500
+Targeting Range Script x2
+Missile Range Script x2
+Missile Precision Script x2
+Caldari Navy Inferno Torpedo x1120
+Inferno Rage Torpedo x1500
+
