@@ -5,5 +5,5 @@
 ,
   { "name": "nano", "type": "dir", "path": "nano" }
 ,
-  { "name": "pve_night", "type": "dir", "path": "pve_night" }
+  { "name": "pve", "type": "dir", "path": "pve" }
 ]
