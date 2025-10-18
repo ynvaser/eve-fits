@@ -4,4 +4,6 @@
   { "name": "fleet", "type": "dir", "path": "fleet" }
 ,
   { "name": "nano", "type": "dir", "path": "nano" }
+,
+  { "name": "pve_night", "type": "dir", "path": "pve_night" }
 ]
