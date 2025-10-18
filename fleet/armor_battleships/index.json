@@ -1,4 +1,6 @@
 [
+  { "name": "ab_astarte_links.txt", "type": "file", "path": "fleet/armor_battleships/ab_astarte_links.txt" }
+,
   { "name": "ab_link_astarte.txt", "type": "file", "path": "fleet/armor_battleships/ab_link_astarte.txt" }
 ,
   { "name": "ab_logi.txt", "type": "file", "path": "fleet/armor_battleships/ab_logi.txt" }

@@ -1,5 +1,5 @@
 [
-  { "name": "c3_pve_night", "type": "dir", "path": "pve/c3_pve_night" }
+  { "name": "pve_night", "type": "dir", "path": "pve/pve_night" }
 ,
   { "name": "salvager", "type": "dir", "path": "pve/salvager" }
 ]

@@ -1,0 +1,17 @@
+[
+  { "name": "pn_dps_drake.txt", "type": "file", "path": "pve/pve_night/pn_dps_drake.txt" }
+,
+  { "name": "pn_links_cyclone.txt", "type": "file", "path": "pve/pve_night/pn_links_cyclone.txt" }
+,
+  { "name": "pn_links_drake.txt", "type": "file", "path": "pve/pve_night/pn_links_drake.txt" }
+,
+  { "name": "pn_logi_basilisk.txt", "type": "file", "path": "pve/pve_night/pn_logi_basilisk.txt" }
+,
+  { "name": "pn_logi_osprey.txt", "type": "file", "path": "pve/pve_night/pn_logi_osprey.txt" }
+,
+  { "name": "pn_newbie_dps_gnosis.txt", "type": "file", "path": "pve/pve_night/pn_newbie_dps_gnosis.txt" }
+,
+  { "name": "pn_secondary_dps_brutix.txt", "type": "file", "path": "pve/pve_night/pn_secondary_dps_brutix.txt" }
+,
+  { "name": "pn_secondary_dps_harb.txt", "type": "file", "path": "pve/pve_night/pn_secondary_dps_harb.txt" }
+]
