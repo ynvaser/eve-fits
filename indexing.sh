@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Indexing..."
+
 # Usage: ./generate-index.sh [root_directory]
 # Defaults to current directory
 
