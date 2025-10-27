@@ -5,5 +5,7 @@
 ,
   { "name": "hfi_cheap_ac.txt", "type": "file", "path": "nano/hfi_cheap_ac.txt" }
 ,
+  { "name": "hfi_cheap_arty.txt", "type": "file", "path": "nano/hfi_cheap_arty.txt" }
+,
   { "name": "orthrus_cheap_rlml.txt", "type": "file", "path": "nano/orthrus_cheap_rlml.txt" }
 ]

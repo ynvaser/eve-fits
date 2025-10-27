@@ -1,0 +1,46 @@
+[Hurricane Fleet Issue, Nano Arty (2025)]
+Nanofiber Internal Structure II
+Domination Overdrive Injector
+Gyrostabilizer II
+Gyrostabilizer II
+Power Diagnostic System II
+Nanofiber Internal Structure II
+
+50MN Y-T8 Compact Microwarpdrive
+Dread Guristas Warp Disruptor
+X-Large Ancillary Shield Booster
+Multispectrum Shield Hardener II
+
+650mm Artillery Cannon II
+650mm Artillery Cannon II
+650mm Artillery Cannon II
+650mm Artillery Cannon II
+650mm Artillery Cannon II
+650mm Artillery Cannon II
+Skirmish Command Burst II
+
+Medium Processor Overclocking Unit II
+Medium EM Shield Reinforcer I
+Medium Thermal Shield Reinforcer I
+
+
+
+Valkyrie II x5
+
+Republic Fleet Phased Plasma M x1500
+Tremor M x1500
+Navy Cap Booster 400 x21
+Republic Fleet EMP M x1500
+Rapid Deployment Charge x300
+Evasive Maneuvers Charge x300
+Interdiction Maneuvers Charge x300
+Sisters Core Scanner Probe x8
+Quake M x1500
+Synth Mindflood Booster x1
+Synth Sooth Sayer Booster x1
+Agency 'Overclocker' SB5 Dose II x1
+Core Probe Launcher I x1
+Cladistic-5 'Krai Svarog' Filament x1
+Glorification-5 'Devana' Filament x1
+Mobile Depot x1
+
