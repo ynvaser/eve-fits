@@ -3,5 +3,7 @@
 ,
   { "name": "eni_cheap_rail.txt", "type": "file", "path": "nano/eni_cheap_rail.txt" }
 ,
+  { "name": "hfi_cheap_ac.txt", "type": "file", "path": "nano/hfi_cheap_ac.txt" }
+,
   { "name": "orthrus_cheap_rlml.txt", "type": "file", "path": "nano/orthrus_cheap_rlml.txt" }
 ]
