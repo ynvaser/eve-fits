@@ -1,3 +1,7 @@
 [
   { "name": "arty_loki.txt", "type": "file", "path": "explorer_hunter/t3c/arty_loki.txt" }
+,
+  { "name": "arty_loki_mk2.txt", "type": "file", "path": "explorer_hunter/t3c/arty_loki_mk2.txt" }
+,
+  { "name": "arty_loki_mk3.txt", "type": "file", "path": "explorer_hunter/t3c/arty_loki_mk3.txt" }
 ]
