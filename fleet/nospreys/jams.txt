@@ -1,0 +1,23 @@
+[Kitsune, Nospreys]
+
+Damage Control II
+Signal Distortion Amplifier II
+
+5MN Quad LiF Restrained Microwarpdrive
+Gravimetric ECM II
+Gravimetric ECM II
+Ladar ECM II
+Ladar ECM II
+
+[Empty High slot]
+[Empty High slot]
+[Empty High slot]
+
+Small Particle Dispersion Projector II
+Small Ionic Field Projector II
+
+
+Agency 'Overclocker' SB5 Dose II
+
+
+Nanite Repair Paste x20

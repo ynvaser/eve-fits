@@ -1,0 +1,19 @@
+[
+  { "name": "dictor.txt", "type": "file", "path": "fleet/nospreys/dictor.txt" }
+,
+  { "name": "dps.txt", "type": "file", "path": "fleet/nospreys/dps.txt" }
+,
+  { "name": "huginn.txt", "type": "file", "path": "fleet/nospreys/huginn.txt" }
+,
+  { "name": "jams.txt", "type": "file", "path": "fleet/nospreys/jams.txt" }
+,
+  { "name": "links_info.txt", "type": "file", "path": "fleet/nospreys/links_info.txt" }
+,
+  { "name": "links_shield.txt", "type": "file", "path": "fleet/nospreys/links_shield.txt" }
+,
+  { "name": "links_skirm.txt", "type": "file", "path": "fleet/nospreys/links_skirm.txt" }
+,
+  { "name": "logi.txt", "type": "file", "path": "fleet/nospreys/logi.txt" }
+,
+  { "name": "web.txt", "type": "file", "path": "fleet/nospreys/web.txt" }
+]

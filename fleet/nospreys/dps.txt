@@ -1,0 +1,36 @@
+[Osprey Navy Issue, Nospreys]
+
+Damage Control II
+Ballistic Control System II
+Ballistic Control System II
+Reactor Control Unit II
+
+50MN Quad LiF Restrained Microwarpdrive
+Large Shield Extender II
+Large Shield Extender II
+Large Compact Pb-Acid Cap Battery
+Multispectrum Shield Hardener II
+Multispectrum Shield Hardener II
+
+Heavy Missile Launcher II, Caldari Navy Scourge Heavy Missile
+Small Energy Neutralizer II
+Heavy Missile Launcher II, Caldari Navy Scourge Heavy Missile
+Small Energy Neutralizer II
+Heavy Missile Launcher II, Caldari Navy Scourge Heavy Missile
+
+Medium Ionic Field Projector I
+Medium Hydraulic Bay Thrusters I
+Medium Hydraulic Bay Thrusters I
+
+
+Warrior II x5
+
+
+Scourge Fury Heavy Missile x1000
+Caldari Navy Inferno Heavy Missile x240
+Caldari Navy Mjolnir Heavy Missile x240
+Caldari Navy Nova Heavy Missile x240
+Caldari Navy Scourge Heavy Missile x1000
+Nanite Repair Paste x25
+Cladistic-5 'Krai Perun' Filament x1
+Glorification-1 'Devana' Filament x1

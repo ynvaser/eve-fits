@@ -1,0 +1,30 @@
+[Stork, Stork]
+
+Co-Processor II
+Power Diagnostic System II
+
+5MN Quad LiF Restrained Microwarpdrive
+Republic Fleet Medium Shield Extender
+Caldari Navy Medium Shield Extender
+EM Shield Amplifier II
+EM Shield Amplifier II
+Multispectrum Shield Hardener II
+
+Shield Command Burst II, Shield Extension Charge
+Shield Command Burst II, Shield Harmonizing Charge
+Shield Command Burst II, Active Shielding Charge
+Information Command Burst II
+Defender Launcher I, Defender Missile I
+'Malkuth' Rocket Launcher I, Caldari Navy Scourge Rocket
+
+Small Command Processor I
+Small Command Processor I
+
+
+Electronic Hardening Charge x300
+Electronic Superiority Charge x300
+Sensor Optimization Charge x300
+Nanite Repair Paste x25
+Caldari Navy Scourge Rocket x300
+Cladistic-5 'Krai Perun' Filament x1
+Glorification-1 'Devana' Filament x1

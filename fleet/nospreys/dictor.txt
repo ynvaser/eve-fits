@@ -1,0 +1,28 @@
+[Flycatcher, Nospreys]
+
+Damage Control II
+
+5MN Quad LiF Restrained Microwarpdrive
+Medium Shield Extender II
+Medium Shield Extender II
+EM Shield Amplifier II
+Warp Scrambler II
+
+'Arbalest' Rocket Launcher I, Caldari Navy Scourge Rocket
+[Empty High slot]
+Interdiction Sphere Launcher I, Warp Disrupt Probe
+[Empty High slot]
+Improved Cloaking Device II
+[Empty High slot]
+[Empty High slot]
+[Empty High slot]
+
+Small Core Defense Field Extender I
+Small EM Shield Reinforcer II
+
+
+Warp Disrupt Probe x40
+Nanite Repair Paste x50
+Caldari Navy Scourge Rocket x135
+Cladistic-5 'Krai Perun' Filament x1
+Glorification-1 'Devana' Filament x1
