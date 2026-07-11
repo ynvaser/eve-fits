@@ -90,6 +90,11 @@
       color: #95a1f9;
       text-decoration: underline;
     }
+    .clickable:focus-visible {
+      outline: 2px solid #a0c4ff;
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
     .filename-red {
       color: #ff6b6b !important;
     }
@@ -149,6 +154,8 @@
     <div id="root-dir-list" class="mb-4" aria-label="Repository directory listing"></div>
   </div>
   <script>
+    const directoryCache = {};
+
     async function loadReadme() {
       try {
         let markdown = null;
@@ -229,6 +236,9 @@
       const title = document.createElement('div');
       title.className = 'folder-title clickable';
       title.textContent = name;
+      title.setAttribute('role', 'button');
+      title.setAttribute('tabindex', '0');
+      title.setAttribute('aria-expanded', 'false');
       card.appendChild(title);
       const nestedUl = document.createElement('ul');
       nestedUl.style.display = 'none';
@@ -238,26 +248,44 @@
     async function loadDirectory(path, container) {
       const indexPath = path ? `${path}/index.json` : 'index.json';
       try {
-        const res = await fetch(indexPath);
-        if (!res.ok) throw new Error('Index JSON not found: ' + indexPath);
-        const items = await res.json();
+        let items;
+        if (directoryCache[indexPath]) {
+          items = directoryCache[indexPath];
+        } else {
+          const res = await fetch(indexPath);
+          if (!res.ok) throw new Error('Index JSON not found: ' + indexPath);
+          items = await res.json();
+          directoryCache[indexPath] = items;
+        }
         container.innerHTML = '';
         const folders = items.filter(item => item.type === 'dir');
         const files = items.filter(item => item.type === 'file' && item.name.endsWith('.txt'));
         for (const item of folders) {
           const { card, title, nestedUl } = createFolderCard(item.name);
+          title.dataset.path = item.path;
           container.appendChild(card);
-          title.addEventListener('click', async () => {
+          
+          const toggleFolder = async () => {
             if (nestedUl.style.display === 'none') {
               if (!nestedUl.dataset.loaded) {
                 await loadDirectory(item.path, nestedUl);
                 nestedUl.dataset.loaded = 'true';
               }
               nestedUl.style.display = 'block';
+              title.setAttribute('aria-expanded', 'true');
               window.history.replaceState(null, '', '#folder=' + encodeURIComponent(item.path));
             } else {
               nestedUl.style.display = 'none';
+              title.setAttribute('aria-expanded', 'false');
               window.history.replaceState(null, '', '#');
+            }
+          };
+
+          title.addEventListener('click', toggleFolder);
+          title.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleFolder();
             }
           });
         }
@@ -268,143 +296,136 @@
             fileUl.className = 'topfile-ul';
             container.appendChild(fileUl);
           }
-          for (const item of files) {
+          
+          const filePromises = files.map(async (item) => {
             const li = document.createElement('li');
             const title = document.createElement('span');
             title.className = 'clickable filename-red';
             title.textContent = item.name;
             title.dataset.path = item.path; // important for deep link
+            title.setAttribute('role', 'button');
+            title.setAttribute('tabindex', '0');
             li.appendChild(title);
             fileUl.appendChild(li);
-            processFileName(item, title).then(async ({content, shouldShowLink}) => {
-              if (shouldShowLink && content !== null) {
-                title.classList.remove('filename-red');
-                try {
-                  const encoder = new TextEncoder();
-                  const encoded = encoder.encode(content);
-                  const compressed = await gzipCompress(encoded);
-                  const base64 = base64Encode(compressed);
-                  const eveShipUrl = `https://eveship.fit/?fit=eft:${base64}`;
-                  const link = document.createElement('a');
-                  link.href = eveShipUrl;
-                  link.target = '_blank';
-                  link.className = 'evship-link';
-                  link.textContent = '-> Simulate fitting';
-                  li.appendChild(link);
-                  const codePre = document.createElement('pre');
-                  codePre.textContent = content;
-                  li.appendChild(codePre);
-                  codePre.style.display = 'none';
-                  title.addEventListener('click', () => {
-                    codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-                    if (codePre.style.display === 'block') {
-                      window.history.replaceState(null, '', '#fit=' + encodeURIComponent(title.dataset.path));
-                    } else {
-                      window.history.replaceState(null, '', '#');
-                    }
-                  });
-                } catch (e) {
-                  console.error('Compression error:', e);
-                  const codePre = document.createElement('pre');
-                  codePre.textContent = content;
-                  li.appendChild(codePre);
-                  codePre.style.display = 'none';
-                  title.addEventListener('click', () => {
-                    codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-                    if (codePre.style.display === 'block') {
-                      window.history.replaceState(null, '', '#fit=' + encodeURIComponent(title.dataset.path));
-                    } else {
-                      window.history.replaceState(null, '', '#');
-                    }
-                  });
-                }
-              } else if(content !== null) {
-                const codePre = document.createElement('pre');
-                codePre.textContent = content;
-                li.appendChild(codePre);
-                codePre.style.display = 'none';
-                title.addEventListener('click', () => {
-                  codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-                  if (codePre.style.display === 'block') {
-                    window.history.replaceState(null, '', '#fit=' + encodeURIComponent(title.dataset.path));
-                  } else {
-                    window.history.replaceState(null, '', '#');
-                  }
-                });
+            
+            const { content, shouldShowLink } = await processFileName(item, title);
+            if (content === null) return;
+            
+            let codePre = document.createElement('pre');
+            codePre.textContent = content;
+            codePre.style.display = 'none';
+            
+            if (shouldShowLink) {
+              title.classList.remove('filename-red');
+              try {
+                const encoder = new TextEncoder();
+                const encoded = encoder.encode(content);
+                const compressed = await gzipCompress(encoded);
+                const base64 = base64Encode(compressed);
+                const eveShipUrl = `https://eveship.fit/?fit=eft:${base64}`;
+                const link = document.createElement('a');
+                link.href = eveShipUrl;
+                link.target = '_blank';
+                link.className = 'evship-link';
+                link.textContent = '-> Simulate fitting';
+                li.appendChild(link);
+              } catch (e) {
+                console.error('Compression error:', e);
+              }
+            }
+            li.appendChild(codePre);
+            
+            const toggleFile = () => {
+              codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
+              if (codePre.style.display === 'block') {
+                window.history.replaceState(null, '', '#fit=' + encodeURIComponent(title.dataset.path));
+              } else {
+                window.history.replaceState(null, '', '#');
+              }
+            };
+            title.addEventListener('click', toggleFile);
+            title.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFile();
               }
             });
-          }
+          });
+          
+          await Promise.all(filePromises);
         }
       } catch (err) {
         container.textContent = 'Could not load directory contents.';
         console.error(err);
       }
     }
+    async function expandFoldersToPath(folderPath) {
+      const parts = folderPath.split('/').filter(Boolean);
+      let container = document.getElementById('root-dir-list');
+      let lastFolderCard = null;
+      for (const name of parts) {
+        const folderCard = Array.from(container.children).find(
+          node => node.querySelector && node.querySelector('.folder-title') &&
+                  node.querySelector('.folder-title').textContent === name
+        );
+        if (!folderCard) return null;
+        lastFolderCard = folderCard;
+        const folderTitle = folderCard.querySelector('.folder-title');
+        const nestedUl = folderCard.querySelector('ul');
+        if (nestedUl.style.display === 'none') {
+          if (!nestedUl.dataset.loaded) {
+            await loadDirectory(folderTitle.dataset.path, nestedUl);
+            nestedUl.dataset.loaded = 'true';
+          }
+          nestedUl.style.display = 'block';
+          folderTitle.setAttribute('aria-expanded', 'true');
+        }
+        container = nestedUl;
+      }
+      return lastFolderCard;
+    }
     async function openFitByPath(path) {
       const parts = path.split('/').filter(Boolean);
-      let container = document.getElementById('root-dir-list');
-      for (let i = 0; i < parts.length; ++i) {
-        const name = parts[i];
-        if (i < parts.length - 1) {
-          const folderCard = Array.from(container.children).find(
-            node => node.querySelector && node.querySelector('.folder-title') && 
-                    node.querySelector('.folder-title').textContent === name
-          );
-          if (!folderCard) return false;
-          const folderTitle = folderCard.querySelector('.folder-title');
-          const nestedUl = folderCard.querySelector('ul');
-          if (nestedUl.style.display === 'none') {
-            folderTitle.click();
-            await new Promise(resolve => setTimeout(resolve, 200));
-          }
-          container = nestedUl;
-        } else {
-          const li = Array.from(container.querySelectorAll('li')).find(
-            liEl => liEl.querySelector && liEl.querySelector('.clickable') &&
-                    liEl.querySelector('.clickable').dataset.path === path
-          );
-          if (li) {
-            li.querySelector('.clickable').click();
-            li.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
+      if (parts.length === 0) return false;
+      const folderPath = parts.slice(0, -1).join('/');
+      const lastFolderCard = folderPath ? await expandFoldersToPath(folderPath) : null;
+      const searchContainer = lastFolderCard ? lastFolderCard.querySelector('ul') : document.getElementById('root-dir-list');
+      if (!searchContainer) return false;
+      
+      const li = Array.from(searchContainer.querySelectorAll('li')).find(
+        liEl => liEl.querySelector && liEl.querySelector('.clickable') &&
+                liEl.querySelector('.clickable').dataset.path === path
+      );
+      if (li) {
+        const titleSpan = li.querySelector('.clickable');
+        const codePre = li.querySelector('pre');
+        if (codePre && codePre.style.display === 'none') {
+          titleSpan.click();
+        }
+        li.scrollIntoView({ behavior: "smooth", block: "center" });
+        return true;
+      }
+      return false;
+    }
+    async function handleRouting() {
+      const hash = window.location.hash;
+      if (hash.startsWith('#fit=')) {
+        const fitPath = decodeURIComponent(hash.substring(5));
+        await openFitByPath(fitPath);
+      } else if (hash.startsWith('#folder=')) {
+        const folderPath = decodeURIComponent(hash.substring(8));
+        const lastFolderCard = await expandFoldersToPath(folderPath);
+        if (lastFolderCard) {
+          lastFolderCard.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }
-      return true;
     }
+    window.addEventListener('hashchange', handleRouting);
     window.addEventListener('DOMContentLoaded', async () => {
       loadReadme();
       const rootContainer = document.getElementById('root-dir-list');
       await loadDirectory('', rootContainer);
-      const hash = window.location.hash;
-      if (hash.startsWith('#fit=')) {
-        const fitPath = decodeURIComponent(hash.substring(5));
-        setTimeout(() => openFitByPath(fitPath), 350);
-      } else if (hash.startsWith('#folder=')) {
-        const folderPath = decodeURIComponent(hash.substring(8));
-        setTimeout(async () => {
-          const parts = folderPath.split('/').filter(Boolean);
-          let container = rootContainer;
-          let lastFolderCard = null;
-          for (const name of parts) {
-            const folderCard = Array.from(container.children).find(
-              node => node.querySelector && node.querySelector('.folder-title') &&
-                      node.querySelector('.folder-title').textContent === name
-            );
-            if (!folderCard) break;
-            lastFolderCard = folderCard;
-            const folderTitle = folderCard.querySelector('.folder-title');
-            const nestedUl = folderCard.querySelector('ul');
-            if (nestedUl.style.display === 'none') {
-              folderTitle.click();
-              await new Promise(resolve => setTimeout(resolve, 200));
-            }
-            container = nestedUl;
-          }
-          if (lastFolderCard) {
-            lastFolderCard.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }, 350);
-      }
+      await handleRouting();
     });
   </script>
 </body>
