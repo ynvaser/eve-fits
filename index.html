@@ -384,12 +384,14 @@
         setTimeout(async () => {
           const parts = folderPath.split('/').filter(Boolean);
           let container = rootContainer;
+          let lastFolderCard = null;
           for (const name of parts) {
             const folderCard = Array.from(container.children).find(
               node => node.querySelector && node.querySelector('.folder-title') &&
                       node.querySelector('.folder-title').textContent === name
             );
             if (!folderCard) break;
+            lastFolderCard = folderCard;
             const folderTitle = folderCard.querySelector('.folder-title');
             const nestedUl = folderCard.querySelector('ul');
             if (nestedUl.style.display === 'none') {
@@ -397,6 +399,9 @@
               await new Promise(resolve => setTimeout(resolve, 200));
             }
             container = nestedUl;
+          }
+          if (lastFolderCard) {
+            lastFolderCard.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         }, 350);
       }
