@@ -141,6 +141,49 @@
     pre::-webkit-scrollbar-track {
       background: #121212;
     }
+    .pre-container {
+      position: relative;
+      margin-top: 0.4rem;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: #27384b;
+      border: 1px solid #3a5068;
+      color: #a0c4ff;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+      z-index: 10;
+    }
+    .pre-container:hover .copy-btn,
+    .copy-btn:focus-visible {
+      opacity: 1;
+    }
+    .copy-btn:hover {
+      background-color: #a0c4ff;
+      color: #121212;
+    }
+    #search-input {
+      background-color: #1e1e1e;
+      border: 1px solid #3a5068;
+      color: #e0e0e0;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+    }
+    #search-input::placeholder {
+      color: #627d98;
+    }
+    #search-input:focus {
+      background-color: #27384b;
+      border-color: #a0c4ff;
+      color: #ffffff;
+      box-shadow: 0 0 8px rgba(160, 196, 255, 0.4);
+      outline: none;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -151,6 +194,9 @@
     <section id="readme-container" class="mb-5" aria-label="README content">
       <div id="readme-content">Loading README.md...</div>
     </section>
+    <div class="mb-4 search-wrapper">
+      <input type="text" id="search-input" class="form-control" placeholder="Search fits or folders..." aria-label="Search fits or folders" />
+    </div>
     <div id="root-dir-list" class="mb-4" aria-label="Repository directory listing"></div>
   </div>
   <script>
@@ -311,9 +357,38 @@
             const { content, shouldShowLink } = await processFileName(item, title);
             if (content === null) return;
             
-            let codePre = document.createElement('pre');
+            const preContainer = document.createElement('div');
+            preContainer.className = 'pre-container';
+            preContainer.style.display = 'none';
+            
+            const codePre = document.createElement('pre');
             codePre.textContent = content;
-            codePre.style.display = 'none';
+            preContainer.appendChild(codePre);
+            
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-btn';
+            copyBtn.textContent = 'Copy';
+            copyBtn.setAttribute('aria-label', 'Copy fit to clipboard');
+            copyBtn.addEventListener('click', async (e) => {
+              e.stopPropagation();
+              try {
+                await navigator.clipboard.writeText(content);
+                copyBtn.textContent = 'Copied!';
+                copyBtn.style.backgroundColor = '#4caf50';
+                copyBtn.style.borderColor = '#4caf50';
+                copyBtn.style.color = '#ffffff';
+                setTimeout(() => {
+                  copyBtn.textContent = 'Copy';
+                  copyBtn.style.backgroundColor = '';
+                  copyBtn.style.borderColor = '';
+                  copyBtn.style.color = '';
+                }, 2000);
+              } catch (err) {
+                console.error('Failed to copy: ', err);
+                copyBtn.textContent = 'Failed';
+              }
+            });
+            preContainer.appendChild(copyBtn);
             
             if (shouldShowLink) {
               title.classList.remove('filename-red');
@@ -333,11 +408,11 @@
                 console.error('Compression error:', e);
               }
             }
-            li.appendChild(codePre);
+            li.appendChild(preContainer);
             
             const toggleFile = () => {
-              codePre.style.display = codePre.style.display === 'none' ? 'block' : 'none';
-              if (codePre.style.display === 'block') {
+              preContainer.style.display = preContainer.style.display === 'none' ? 'block' : 'none';
+              if (preContainer.style.display === 'block') {
                 window.history.replaceState(null, '', '#fit=' + encodeURIComponent(title.dataset.path));
               } else {
                 window.history.replaceState(null, '', '#');
@@ -353,6 +428,11 @@
           });
           
           await Promise.all(filePromises);
+        }
+        
+        const searchInput = document.getElementById('search-input');
+        if (searchInput && searchInput.value.trim() !== '') {
+          runSearch(searchInput.value);
         }
       } catch (err) {
         container.textContent = 'Could not load directory contents.';
@@ -398,8 +478,8 @@
       );
       if (li) {
         const titleSpan = li.querySelector('.clickable');
-        const codePre = li.querySelector('pre');
-        if (codePre && codePre.style.display === 'none') {
+        const preContainer = li.querySelector('.pre-container');
+        if (preContainer && preContainer.style.display === 'none') {
           titleSpan.click();
         }
         li.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -420,12 +500,100 @@
         }
       }
     }
+    async function loadAllDirectoriesRecursively(path = '', container = null) {
+      if (!container) {
+        container = document.getElementById('root-dir-list');
+      }
+      const folderCards = Array.from(container.children).filter(
+        node => node.classList && node.classList.contains('folder-card')
+      );
+      const promises = folderCards.map(async (card) => {
+        const title = card.querySelector('.folder-title');
+        const nestedUl = card.querySelector('ul');
+        if (!nestedUl.dataset.loaded) {
+          await loadDirectory(title.dataset.path, nestedUl);
+          nestedUl.dataset.loaded = 'true';
+        }
+        await loadAllDirectoriesRecursively(title.dataset.path, nestedUl);
+      });
+      await Promise.all(promises);
+    }
+    function runSearch(query) {
+      const q = query.toLowerCase().trim();
+      const rootList = document.getElementById('root-dir-list');
+      const folderCards = Array.from(rootList.querySelectorAll('.folder-card'));
+      const lis = Array.from(rootList.querySelectorAll('li'));
+      const uls = Array.from(rootList.querySelectorAll('ul'));
+      
+      if (q === '') {
+        folderCards.forEach(card => card.style.display = '');
+        lis.forEach(li => li.style.display = '');
+        uls.forEach(ul => {
+          if (ul.className === 'topfile-ul') {
+            ul.style.display = '';
+            return;
+          }
+          const title = ul.previousElementSibling;
+          if (title && title.classList.contains('folder-title')) {
+            ul.style.display = title.getAttribute('aria-expanded') === 'true' ? 'block' : 'none';
+          } else {
+            ul.style.display = 'none';
+          }
+        });
+        return;
+      }
+      
+      folderCards.forEach(card => card.style.display = 'none');
+      lis.forEach(li => li.style.display = 'none');
+      uls.forEach(ul => ul.style.display = 'none');
+      
+      function showAndExpandAncestors(element) {
+        let curr = element;
+        while (curr && curr !== rootList) {
+          if (curr.classList.contains('folder-card')) {
+            curr.style.display = '';
+          }
+          if (curr.tagName === 'UL') {
+            curr.style.display = 'block';
+          }
+          curr = curr.parentElement;
+        }
+      }
+      
+      lis.forEach(li => {
+        const titleSpan = li.querySelector('.clickable');
+        if (titleSpan && titleSpan.textContent.toLowerCase().includes(q)) {
+          li.style.display = '';
+          showAndExpandAncestors(li);
+        }
+      });
+      
+      folderCards.forEach(card => {
+        const titleDiv = card.querySelector('.folder-title');
+        if (titleDiv && titleDiv.textContent.toLowerCase().includes(q)) {
+          card.style.display = '';
+          showAndExpandAncestors(card);
+          card.querySelectorAll('li').forEach(li => li.style.display = '');
+          card.querySelectorAll('.folder-card').forEach(subCard => subCard.style.display = '');
+          card.querySelectorAll('ul').forEach(ul => ul.style.display = 'block');
+        }
+      });
+    }
+
     window.addEventListener('hashchange', handleRouting);
     window.addEventListener('DOMContentLoaded', async () => {
       loadReadme();
+      
+      const searchInput = document.getElementById('search-input');
+      searchInput.addEventListener('input', (e) => {
+        runSearch(e.target.value);
+      });
+      
       const rootContainer = document.getElementById('root-dir-list');
       await loadDirectory('', rootContainer);
       await handleRouting();
+      
+      loadAllDirectoriesRecursively('', rootContainer);
     });
   </script>
 </body>
