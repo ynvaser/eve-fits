@@ -1,0 +1,15 @@
+[
+  { "name": "dps_info.txt", "type": "file", "path": "fleet/steel_rain/dps_info.txt" }
+,
+  { "name": "dps_neuts.txt", "type": "file", "path": "fleet/steel_rain/dps_neuts.txt" }
+,
+  { "name": "dps_shield.txt", "type": "file", "path": "fleet/steel_rain/dps_shield.txt" }
+,
+  { "name": "dps_skirm.txt", "type": "file", "path": "fleet/steel_rain/dps_skirm.txt" }
+,
+  { "name": "lach.txt", "type": "file", "path": "fleet/steel_rain/lach.txt" }
+,
+  { "name": "rapier.txt", "type": "file", "path": "fleet/steel_rain/rapier.txt" }
+,
+  { "name": "scimi.txt", "type": "file", "path": "fleet/steel_rain/scimi.txt" }
+]

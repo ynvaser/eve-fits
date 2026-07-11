@@ -1,0 +1,40 @@
+[Ferox, [SF - Steel Rain] DPS/Neuts]
+Magnetic Field Stabilizer II
+Magnetic Field Stabilizer II
+Power Diagnostic System II
+Damage Control II
+
+50MN Cold-Gas Enduring Microwarpdrive
+Large Shield Extender II
+Large Shield Extender II
+Small Capacitor Booster II
+Multispectrum Shield Hardener II
+Multispectrum Shield Hardener II
+
+200mm Railgun II
+200mm Railgun II
+200mm Railgun II
+200mm Railgun II
+200mm Railgun II
+200mm Railgun II
+Medium Energy Neutralizer II
+
+Medium EM Shield Reinforcer II
+Medium EM Shield Reinforcer II
+Medium Thermal Shield Reinforcer II
+
+
+
+Warrior II x5
+
+Javelin M x2480
+Spike M x1500
+Navy Cap Booster 400 x31
+Caldari Navy Antimatter Charge M x1000
+Caldari Navy Uranium Charge M x1000
+Caldari Navy Thorium Charge M x1000
+Caldari Navy Lead Charge M x750
+Nanite Repair Paste x150
+Glorification-5 'Devana' Filament x1
+Cladistic-5 'Krai Svarog' Filament x1
+

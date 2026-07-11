@@ -10,4 +10,6 @@
   { "name": "righteous_thunder", "type": "dir", "path": "fleet/righteous_thunder" }
 ,
   { "name": "shield_battleships", "type": "dir", "path": "fleet/shield_battleships" }
+,
+  { "name": "steel_rain", "type": "dir", "path": "fleet/steel_rain" }
 ]
