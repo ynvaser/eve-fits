@@ -1,11 +1,11 @@
 [
-  { "name": "sb_basi.txt", "type": "file", "path": "fleet/shield_battleships/sb_basi.txt" }
+  { "name": "sb_basi.txt", "type": "file", "path": "fleet/shield_battleships/sb_basi.txt", "shipTypeId": 11985 }
 ,
-  { "name": "sb_phoon_1a.txt", "type": "file", "path": "fleet/shield_battleships/sb_phoon_1a.txt" }
+  { "name": "sb_phoon_1a.txt", "type": "file", "path": "fleet/shield_battleships/sb_phoon_1a.txt", "shipTypeId": 644 }
 ,
-  { "name": "sb_phoon_fleet_1a_plus.txt", "type": "file", "path": "fleet/shield_battleships/sb_phoon_fleet_1a_plus.txt" }
+  { "name": "sb_phoon_fleet_1a_plus.txt", "type": "file", "path": "fleet/shield_battleships/sb_phoon_fleet_1a_plus.txt", "shipTypeId": 32311 }
 ,
-  { "name": "sb_tempest_1b.txt", "type": "file", "path": "fleet/shield_battleships/sb_tempest_1b.txt" }
+  { "name": "sb_tempest_1b.txt", "type": "file", "path": "fleet/shield_battleships/sb_tempest_1b.txt", "shipTypeId": 639 }
 ,
-  { "name": "sb_tempest_fleet_1b_plus.txt", "type": "file", "path": "fleet/shield_battleships/sb_tempest_fleet_1b_plus.txt" }
+  { "name": "sb_tempest_fleet_1b_plus.txt", "type": "file", "path": "fleet/shield_battleships/sb_tempest_fleet_1b_plus.txt", "shipTypeId": 17732 }
 ]

@@ -1,15 +1,15 @@
 [
-  { "name": "dps_info.txt", "type": "file", "path": "fleet/steel_rain/dps_info.txt" }
+  { "name": "dps_info.txt", "type": "file", "path": "fleet/steel_rain/dps_info.txt", "shipTypeId": 16227 }
 ,
-  { "name": "dps_neuts.txt", "type": "file", "path": "fleet/steel_rain/dps_neuts.txt" }
+  { "name": "dps_neuts.txt", "type": "file", "path": "fleet/steel_rain/dps_neuts.txt", "shipTypeId": 16227 }
 ,
-  { "name": "dps_shield.txt", "type": "file", "path": "fleet/steel_rain/dps_shield.txt" }
+  { "name": "dps_shield.txt", "type": "file", "path": "fleet/steel_rain/dps_shield.txt", "shipTypeId": 16227 }
 ,
-  { "name": "dps_skirm.txt", "type": "file", "path": "fleet/steel_rain/dps_skirm.txt" }
+  { "name": "dps_skirm.txt", "type": "file", "path": "fleet/steel_rain/dps_skirm.txt", "shipTypeId": 16227 }
 ,
-  { "name": "lach.txt", "type": "file", "path": "fleet/steel_rain/lach.txt" }
+  { "name": "lach.txt", "type": "file", "path": "fleet/steel_rain/lach.txt", "shipTypeId": 11969 }
 ,
-  { "name": "rapier.txt", "type": "file", "path": "fleet/steel_rain/rapier.txt" }
+  { "name": "rapier.txt", "type": "file", "path": "fleet/steel_rain/rapier.txt", "shipTypeId": 11963 }
 ,
-  { "name": "scimi.txt", "type": "file", "path": "fleet/steel_rain/scimi.txt" }
+  { "name": "scimi.txt", "type": "file", "path": "fleet/steel_rain/scimi.txt", "shipTypeId": 11978 }
 ]

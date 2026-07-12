@@ -1,9 +1,9 @@
 [
-  { "name": "s_catalyst.txt", "type": "file", "path": "pve/salvager/s_catalyst.txt" }
+  { "name": "s_catalyst.txt", "type": "file", "path": "pve/salvager/s_catalyst.txt", "shipTypeId": 16240 }
 ,
-  { "name": "s_coercer.txt", "type": "file", "path": "pve/salvager/s_coercer.txt" }
+  { "name": "s_coercer.txt", "type": "file", "path": "pve/salvager/s_coercer.txt", "shipTypeId": 16236 }
 ,
-  { "name": "s_cormorant.txt", "type": "file", "path": "pve/salvager/s_cormorant.txt" }
+  { "name": "s_cormorant.txt", "type": "file", "path": "pve/salvager/s_cormorant.txt", "shipTypeId": 16238 }
 ,
-  { "name": "s_thrasher.txt", "type": "file", "path": "pve/salvager/s_thrasher.txt" }
+  { "name": "s_thrasher.txt", "type": "file", "path": "pve/salvager/s_thrasher.txt", "shipTypeId": 16242 }
 ]

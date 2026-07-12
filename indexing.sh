@@ -8,6 +8,9 @@ echo "Indexing..."
 ROOT_DIR="${1:-.}"
 ROOT_DIR_ABS=$(cd "$ROOT_DIR"; pwd)
 
+# Global associative array for caching ship name -> type ID lookups
+declare -A ship_cache
+
 generate_index() {
   local current_dir="$1"
   local prefix="$2"
@@ -56,7 +59,32 @@ generate_index() {
     name_escaped=$(printf '%s' "$item" | sed 's/"/\\"/g')
     path_escaped=$(printf '%s' "$rel_path" | sed 's/"/\\"/g')
 
-    echo "  { \"name\": \"$name_escaped\", \"type\": \"$type\", \"path\": \"$path_escaped\" }" >> "$index_file"
+    if [ "$type" = "file" ]; then
+      # Extract ship name from the first line matching EVE fit header bracket pattern
+      first_matching_line=$(grep -m 1 "^\[.*,.*\]" "$item_path")
+      ship_name=$(echo "$first_matching_line" | sed -n 's/^\[\([^,]*\),.*/\1/p' | xargs)
+      
+      ship_id="null"
+      if [ -n "$ship_name" ]; then
+        if [ -n "${ship_cache[$ship_name]}" ]; then
+          ship_id="${ship_cache[$ship_name]}"
+        else
+          echo "Resolving ID for ship: $ship_name..."
+          res=$(curl -s -X POST "https://esi.evetech.net/latest/universe/ids/?datasource=tranquility" \
+            -H "Content-Type: application/json" \
+            -d "[\"$ship_name\"]")
+          fetched_id=$(echo "$res" | sed -n 's/.*"inventory_types":\[{"id":\([0-9]*\),.*/\1/p')
+          if [[ "$fetched_id" =~ ^[0-9]+$ ]]; then
+            ship_id="$fetched_id"
+            ship_cache["$ship_name"]="$ship_id"
+          fi
+        fi
+      fi
+      
+      echo "  { \"name\": \"$name_escaped\", \"type\": \"$type\", \"path\": \"$path_escaped\", \"shipTypeId\": $ship_id }" >> "$index_file"
+    else
+      echo "  { \"name\": \"$name_escaped\", \"type\": \"$type\", \"path\": \"$path_escaped\" }" >> "$index_file"
+    fi
   done
 
   echo "]" >> "$index_file"

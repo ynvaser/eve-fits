@@ -345,12 +345,26 @@
           
           const filePromises = files.map(async (item) => {
             const li = document.createElement('li');
+            li.style.marginBottom = '0.5rem';
+            
+            if (item.shipTypeId) {
+              const img = document.createElement('img');
+              img.src = `https://images.evetech.net/types/${item.shipTypeId}/icon?size=32`;
+              img.alt = '';
+              img.style.width = '24px';
+              img.style.height = '24px';
+              img.style.marginRight = '8px';
+              img.style.verticalAlign = 'middle';
+              li.appendChild(img);
+            }
+            
             const title = document.createElement('span');
             title.className = 'clickable filename-red';
             title.textContent = item.name;
             title.dataset.path = item.path; // important for deep link
             title.setAttribute('role', 'button');
             title.setAttribute('tabindex', '0');
+            title.style.verticalAlign = 'middle';
             li.appendChild(title);
             fileUl.appendChild(li);
             

@@ -1,11 +1,11 @@
 [
   { "name": "cloaky", "type": "dir", "path": "nano/cloaky" }
 ,
-  { "name": "eni_cheap_rail.txt", "type": "file", "path": "nano/eni_cheap_rail.txt" }
+  { "name": "eni_cheap_rail.txt", "type": "file", "path": "nano/eni_cheap_rail.txt", "shipTypeId": 29344 }
 ,
-  { "name": "hfi_cheap_ac.txt", "type": "file", "path": "nano/hfi_cheap_ac.txt" }
+  { "name": "hfi_cheap_ac.txt", "type": "file", "path": "nano/hfi_cheap_ac.txt", "shipTypeId": 33157 }
 ,
-  { "name": "hfi_cheap_arty.txt", "type": "file", "path": "nano/hfi_cheap_arty.txt" }
+  { "name": "hfi_cheap_arty.txt", "type": "file", "path": "nano/hfi_cheap_arty.txt", "shipTypeId": 33157 }
 ,
-  { "name": "orthrus_cheap_rlml.txt", "type": "file", "path": "nano/orthrus_cheap_rlml.txt" }
+  { "name": "orthrus_cheap_rlml.txt", "type": "file", "path": "nano/orthrus_cheap_rlml.txt", "shipTypeId": 33818 }
 ]

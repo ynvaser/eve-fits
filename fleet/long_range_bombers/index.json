@@ -1,17 +1,17 @@
 [
-  { "name": "hound_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/hound_budget_long_range.txt" }
+  { "name": "hound_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/hound_budget_long_range.txt", "shipTypeId": 12034 }
 ,
-  { "name": "hound_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/hound_long_range.txt" }
+  { "name": "hound_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/hound_long_range.txt", "shipTypeId": 12034 }
 ,
-  { "name": "manticore_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/manticore_budget_long_range.txt" }
+  { "name": "manticore_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/manticore_budget_long_range.txt", "shipTypeId": 12032 }
 ,
-  { "name": "manticore_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/manticore_long_range.txt" }
+  { "name": "manticore_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/manticore_long_range.txt", "shipTypeId": 12032 }
 ,
-  { "name": "nemesis_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/nemesis_budget_long_range.txt" }
+  { "name": "nemesis_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/nemesis_budget_long_range.txt", "shipTypeId": 11377 }
 ,
-  { "name": "nemesis_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/nemesis_long_range.txt" }
+  { "name": "nemesis_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/nemesis_long_range.txt", "shipTypeId": 11377 }
 ,
-  { "name": "purifier_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/purifier_budget_long_range.txt" }
+  { "name": "purifier_budget_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/purifier_budget_long_range.txt", "shipTypeId": 12038 }
 ,
-  { "name": "purifier_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/purifier_long_range.txt" }
+  { "name": "purifier_long_range.txt", "type": "file", "path": "fleet/long_range_bombers/purifier_long_range.txt", "shipTypeId": 12038 }
 ]

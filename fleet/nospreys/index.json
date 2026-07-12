@@ -1,19 +1,19 @@
 [
-  { "name": "dictor.txt", "type": "file", "path": "fleet/nospreys/dictor.txt" }
+  { "name": "dictor.txt", "type": "file", "path": "fleet/nospreys/dictor.txt", "shipTypeId": 22464 }
 ,
-  { "name": "dps.txt", "type": "file", "path": "fleet/nospreys/dps.txt" }
+  { "name": "dps.txt", "type": "file", "path": "fleet/nospreys/dps.txt", "shipTypeId": 29340 }
 ,
-  { "name": "huginn.txt", "type": "file", "path": "fleet/nospreys/huginn.txt" }
+  { "name": "huginn.txt", "type": "file", "path": "fleet/nospreys/huginn.txt", "shipTypeId": 11961 }
 ,
-  { "name": "jams.txt", "type": "file", "path": "fleet/nospreys/jams.txt" }
+  { "name": "jams.txt", "type": "file", "path": "fleet/nospreys/jams.txt", "shipTypeId": 11194 }
 ,
-  { "name": "links_info.txt", "type": "file", "path": "fleet/nospreys/links_info.txt" }
+  { "name": "links_info.txt", "type": "file", "path": "fleet/nospreys/links_info.txt", "shipTypeId": 37482 }
 ,
-  { "name": "links_shield.txt", "type": "file", "path": "fleet/nospreys/links_shield.txt" }
+  { "name": "links_shield.txt", "type": "file", "path": "fleet/nospreys/links_shield.txt", "shipTypeId": 37482 }
 ,
-  { "name": "links_skirm.txt", "type": "file", "path": "fleet/nospreys/links_skirm.txt" }
+  { "name": "links_skirm.txt", "type": "file", "path": "fleet/nospreys/links_skirm.txt", "shipTypeId": 37482 }
 ,
-  { "name": "logi.txt", "type": "file", "path": "fleet/nospreys/logi.txt" }
+  { "name": "logi.txt", "type": "file", "path": "fleet/nospreys/logi.txt", "shipTypeId": 11978 }
 ,
-  { "name": "web.txt", "type": "file", "path": "fleet/nospreys/web.txt" }
+  { "name": "web.txt", "type": "file", "path": "fleet/nospreys/web.txt", "shipTypeId": 11387 }
 ]
